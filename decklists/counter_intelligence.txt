@@ -1,0 +1,93 @@
+1x Adarkar Wastes (EOC) 147
+1x Alibou, Ancient Witness (EOC) 113
+1x Ancient Den (EOC) 148
+1x Angel of the Ruins (EOC) 63
+1x Arcane Signet (EOC) 53
+1x Astral Cornucopia (EOC) 131
+1x Battlefield Forge (EOC) 58
+1x Buried Ruin (EOC) 150
+1x Cascade Bluffs (EOC) 153
+1x Chain Reaction (EOC) 87
+1x Chaos Warp (EOC) 49
+1x Chrome Host Seedshark (EOC) 68
+1x Clifftop Retreat (EOC) 155
+1x Cloud Key (EOC) 54
+1x Command Tower (EOC) 59
+1x Coretapper (EOC) 132
+1x Crystalline Crawler (EOC) 133
+1x Cyberdrive Awakener (EOC) 69
+1x Darksteel Reactor (EOC) 134
+1x Deepglow Skate (EOC) 70
+1x Depthshaker Titan (EOC) 9
+1x Dispatch (EOC) 64
+1x Empowered Autogenerator (EOC) 135
+1x Emry, Lurker of the Loch (EOC) 71
+1x Enthusiastic Mechanaut (EOC) 114
+1x Etched Oracle (EOC) 136
+1x Etherium Sculptor (EOC) 72
+1x Everflowing Chalice (EOC) 137
+1x Evolving Wilds (EOC) 158
+1x Exotic Orchard (EOC) 159
+1x Experimental Augury (EOC) 73
+1x Fumigate (EOC) 65
+1x Gavel of the Righteous (EOC) 55
+1x Glacial Fortress (EOC) 160
+1x Glittering Massif (EOC) 22
+1x Golem Foundry (EOC) 138
+1x Great Furnace (EOC) 161
+1x Hangarback Walker (EOC) 139
+1x Insight Engine (EOC) 6
+1x Irrigated Farmland (EOC) 162
+3x Island (EOE) 263
+1x Jhoira, Weatherlight Captain (EOC) 118
+1x Kappa Cannoneer (EOC) 74
+1x Karn's Bastion (EOC) 163
+1x Kilo, Apogee Mind (EOC) 3
+1x Lonely Sandbar (EOC) 166
+1x Long-Range Sensor (EOC) 11
+1x Lux Artillery (EOC) 140
+1x Lux Cannon (EOC) 141
+1x Mindless Automaton (EOC) 142
+3x Mountain (EOE) 265
+1x Moxite Refinery (EOC) 17
+1x Mystic Monastery (EOC) 170
+1x Organic Extinction (EOC) 66
+1x Patrolling Peacemaker (EOC) 5
+1x Pentad Prism (EOC) 56
+1x Phyrexian Metamorph (EOC) 75
+3x Plains (EOE) 262
+1x Pull from Tomorrow (EOC) 76
+1x Radiant Summit (EOC) 23
+1x Razortide Bridge (EOC) 171
+1x Resourceful Defense (EOC) 67
+1x Ripples of Potential (EOC) 77
+1x Rugged Prairie (EOC) 174
+1x Rustvale Bridge (EOC) 175
+1x Seat of the Synod (EOC) 176
+1x Secluded Steppe (EOC) 177
+1x Shivan Reef (EOC) 179
+1x Silverbluff Bridge (EOC) 180
+1x Skycloud Expanse (EOC) 181
+1x Sol Ring (EOC) 57
+1x Solar Array (EOC) 18
+1x Soul-Guide Lantern (EOC) 143
+1x Spire of Industry (EOC) 183
+1x Steel Overseer (EOC) 144
+1x Sulfur Falls (EOC) 184
+1x Surge Conductor (EOC) 19
+1x Swan Song (EOC) 46
+1x Swords to Plowshares (EOC) 45
+1x Tekuthal, Inquiry Dominus (EOC) 78
+1x Temple of Enlightenment (EOC) 186
+1x Temple of Epiphany (EOC) 187
+1x Temple of Triumph (EOC) 188
+1x Tezzeret's Gambit (EOC) 47
+1x The Mycosynth Gardens (EOC) 168
+1x Thirst for Knowledge (EOC) 48
+1x Thought Monitor (EOC) 79
+1x Threefold Thunderhulk (EOC) 145
+1x Thrummingbird (EOC) 80
+1x Titan Forge (EOC) 146
+1x Universal Surveillance (EOC) 81
+1x Uthros Research Craft (EOC) 7
+1x Wake the Past (EOC) 128

@@ -1,0 +1,87 @@
+1x Access Tunnel (OTC) 270
+1x Arcane Heist (OTC) 13
+1x Arcane Signet (OTC) 252
+1x Baleful Mastery (OTC) 126
+1x Baleful Strix (OTC) 215
+1x Bladegriff Prototype (OTC) 253
+1x Brainstealer Dragon (OTC) 127
+1x Cazur, Ruthless Stalker (OTC) 188
+1x Chaos Wand (OTC) 254
+1x Cold-Eyed Selkie (OTC) 218
+1x Command Tower (OTC) 280
+1x Culling Ritual (OTC) 219
+1x Cunning Rhetoric (OTC) 129
+1x Curse of the Swine (OTC) 92
+1x Darkslick Shores (OTC) 281
+1x Darksteel Ingot (OTC) 256
+1x Darkwater Catacombs (OTC) 282
+1x Dazzling Sphinx (OTC) 93
+1x Diluvian Primordial (OTC) 96
+1x Dimir Aqueduct (OTC) 288
+1x Doc Aurlock, Grizzled Genius (OTJ) 201
+1x Dream-Thief's Bandana (OTC) 38
+1x Drowned Catacomb (OTC) 290
+1x Edric, Spymaster of Trest (OTC) 221
+1x Exotic Orchard (OTC) 293
+1x Extract Brain (OTC) 225
+1x Fallen Shinobi (OTC) 226
+1x Feed the Swarm (OTC) 134
+1x Felix Five-Boots (OTC) 6
+1x Fellwar Stone (OTC) 257
+1x Fetid Pools (OTC) 296
+1x Flooded Grove (OTC) 297
+4x Forest (OTJ) 276
+1x Ghostly Pilferer (OTC) 98
+1x Gonti, Lord of Luxury (OTC) 135
+1x Heartless Conscription (OTC) 21
+1x Hinterland Harbor (OTC) 300
+1x Hostage Taker (OTC) 231
+5x Island (OTJ) 273
+1x Kodama's Reach (OTC) 196
+1x Llanowar Wastes (OTC) 305
+1x Mind's Dilation (OTC) 101
+1x Nashi, Moon Sage's Scion (OTC) 143
+1x Oblivion Sower (OTC) 77
+1x Ohran Frostfang (OTC) 199
+1x Opulent Palace (OTC) 307
+1x Orochi Soul-Reaver (OTC) 22
+1x Overflowing Basin (OTC) 308
+1x Plasm Capture (OTC) 237
+1x Predators' Hour (OTC) 147
+1x Prismatic Lens (OTC) 264
+1x Putrefy (OTC) 238
+1x Rampant Growth (OTC) 201
+1x Reliquary Tower (OTC) 312
+1x Sage of the Beyond (OTC) 111
+1x Savvy Trader (OTC) 33
+1x Shadowmage Infiltrator (OTC) 240
+1x Silent-Blade Oni (OTC) 241
+1x Silhana Ledgewalker (OTC) 206
+1x Siphon Insight (OTC) 242
+1x Slither Blade (OTC) 114
+1x Smirking Spelljacker (OTC) 16
+1x Sol Ring (OTC) 267
+1x Stolen Goods (OTC) 115
+1x Sunken Hollow (OTC) 325
+6x Swamp (OTJ) 274
+1x Temple of Deceit (OTC) 328
+1x Temple of Malady (OTC) 330
+1x Temple of Mystery (OTC) 332
+1x The Mimeoplasm (OTC) 234
+1x Thief of Sanity (OTC) 243
+1x Thieving Amalgam (OTC) 150
+1x Thieving Skydiver (OTC) 118
+1x Thieving Varmint (OTC) 23
+1x Three Visits (OTC) 209
+1x Tower Winder (OTC) 34
+1x Triton Shorestalker (OTC) 121
+1x Trygon Predator (OTC) 246
+1x Twilight Mire (OTC) 337
+1x Ukkima, Stalking Shadow (OTC) 247
+1x Underground River (OTC) 338
+1x Villainous Wealth (OTC) 249
+1x Viridescent Bog (OTC) 340
+1x Void Attendant (OTC) 212
+1x Whirler Rogue (OTC) 122
+1x Woodland Cemetery (OTC) 341
+1x Yavimaya Coast (OTC) 342
