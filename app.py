@@ -114,13 +114,17 @@ with tag_filter_tab:
     st.header("Filter by Tag - Quantity Across Decks")
     
     if not card_tags_per_deck_df.empty:
-        # Tag selector
-        available_tags = sorted(card_tags_per_deck_df['tag_name'].unique())
-        selected_tag = st.selectbox(
-            "Select a tag to see its distribution across decks:",
-            options=available_tags,
-            key="tag_filter"
-        )
+        # Create a container to prevent scroll on change
+        filter_container = st.container()
+        
+        with filter_container:
+            # Tag selector
+            available_tags = sorted(card_tags_per_deck_df['tag_name'].unique())
+            selected_tag = st.selectbox(
+                "Select a tag to see its distribution across decks:",
+                options=available_tags,
+                key="tag_filter"
+            )
         
         # Filter data for selected tag
         tag_data = card_tags_per_deck_df[card_tags_per_deck_df['tag_name'] == selected_tag].copy()
@@ -192,12 +196,17 @@ with deck_analysis_tab:
     
     
     if not deck_stats_df.empty:
-        available_decks = sorted(deck_stats_df['deck_name'].unique())
-        selected_deck = st.selectbox(
-            "Select a deck to see its details:",
-            options=available_decks,
-            key="deck_filter"
-        )
+        # Create a container to prevent scroll on change
+        deck_filter_container = st.container()
+        
+        with deck_filter_container:
+            available_decks = sorted(deck_stats_df['deck_name'].unique())
+            selected_deck = st.selectbox(
+                "Select a deck to see its details:",
+                options=available_decks,
+                key="deck_filter"
+            )
+        
         deck_tag_data = card_tags_per_deck_df[card_tags_per_deck_df['deck_name'] == selected_deck].copy()
         deck_data = deck_stats_df[deck_stats_df['deck_name'] == selected_deck].copy()
         col1, col2 = st.columns([2, 1])

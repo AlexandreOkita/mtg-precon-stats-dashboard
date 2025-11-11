@@ -7,3 +7,11 @@ reset:
 	rm -f precon.db
 	poetry run python init_db.py
 	poetry run python populate_db.py
+
+.PHONY: add-set
+add-set:
+	poetry run python populate_db.py --set $(SET)
+
+.PHONY: add-deck
+add-decks:
+	poetry run python populate_db.py --decks $(DECK)

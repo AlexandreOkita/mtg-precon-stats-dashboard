@@ -1,4 +1,6 @@
 import sqlite3
+import sys
+from typing import Optional
 
 from scryfall_api import ScryfallAPI
 import os
@@ -39,12 +41,17 @@ def _get_set_list():
         sets = [line.strip() for line in f.readlines() if line.strip()]
     return sets
 
-def populate_db_with_tags():
+def populate_db_with_tags(set: Optional[str] = None):
     scryfall_api = ScryfallAPI()
     conn = sqlite3.connect("precon.db")
     cursor = conn.cursor()
 
-    for mtg_set in _get_set_list():
+    if set:
+        mtg_sets = [set]
+    else:
+        mtg_sets = _get_set_list()
+
+    for mtg_set in mtg_sets:
         for tag_description in _get_tag_list():
             if "->" in tag_description:
                 query = f'set:{mtg_set} o:"{tag_description.split("->")[0].strip()}"'
@@ -69,11 +76,14 @@ def populate_db_with_tags():
 
     conn.close()
 
-def populate_db_with_decks():
+def populate_db_with_decks(deck: Optional[str] = None):
     conn = sqlite3.connect("precon.db")
     cursor = conn.cursor()
 
     decklists_path = "decklists/"
+
+    if deck:
+        decklists_path = os.path.join(decklists_path, f"{deck}.txt")
     
     # Check all files inside decklists directory
     if os.path.exists(decklists_path):
@@ -97,5 +107,11 @@ def populate_db_with_decks():
     conn.close()
 
 if __name__ == "__main__":
-    populate_db_with_tags()
-    populate_db_with_decks()
+    args = sys.argv[1:]
+    if args and args[0] == "--set" and len(args) > 1:
+        populate_db_with_tags(set=args[1])
+    elif args and args[0] == "--decks" and len(args) > 1:
+        populate_db_with_decks()
+    else:
+        populate_db_with_tags()
+        populate_db_with_decks()
