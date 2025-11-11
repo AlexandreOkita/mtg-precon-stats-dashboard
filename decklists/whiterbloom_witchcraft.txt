@@ -1,0 +1,79 @@
+1x Ageless Entity (C21) 184
+1x Alhammarret's Archive (C21) 233
+1x Ancient Craving (C21) 135
+1x Arcane Signet (C21) 234
+1x Blight Mound (C21) 36
+1x Blighted Woodland (C21) 280
+1x Bloodthirsty Aerialist (C21) 136
+1x Bloodtracker (C21) 137
+1x Blossoming Bogbeast (C21) 59
+1x Command Tower (C21) 284
+1x Cultivate (C21) 187
+1x Damnable Pact (C21) 139
+1x Deadly Tempest (C21) 140
+1x Defiant Bloodlord (C21) 142
+1x Dina, Soul Steeper (STX) 178
+1x Druidic Satchel (C21) 241
+1x Elixir of Immortality (C21) 243
+1x Epicure of Blood (C21) 143
+1x Essence Pulse (C21) 39
+1x Exotic Orchard (C21) 288
+1x Ezzaroot Channeler (C21) 60
+1x Feed the Swarm (C21) 144
+11x Forest (STX) 374
+1x Gaze of Granite (C21) 217
+1x Gift of Paradise (C21) 191
+1x Gingerbread Cabin (C21) 290
+1x Gluttonous Troll (C21) 218
+1x Golgari Rot Farm (C21) 291
+1x Greed (C21) 145
+1x Gyome, Master Chef (C21) 5
+1x Healing Technique (C21) 63
+1x High Market (C21) 293
+1x Honor Troll (STX) 134
+1x Jungle Hollow (C21) 295
+1x Leyline Prowler (C21) 222
+1x Llanowar Wastes (C21) 297
+1x Loxodon Warhammer (C21) 249
+1x Marshland Bloodcaster (C21) 43
+1x Moldervine Reclamation (C21) 225
+1x Mortality Spear (STX) 207
+1x Myriad Landscape (C21) 304
+1x Nissa's Renewal (C21) 201
+1x Noxious Gearhulk (C21) 148
+1x Ob Nixilis Reignited (C21) 149
+1x Paradise Plume (C21) 255
+1x Pest Infestation (C21) 65
+1x Pristine Talisman (C21) 258
+1x Pulse of Murasa (C21) 202
+1x Radiant Fountain (C21) 310
+1x Rampant Growth (C21) 204
+1x Reckless Spite (C21) 151
+1x Revival Experiment (C21) 74
+1x Rogue's Passage (C21) 312
+1x Sangromancer (C21) 152
+1x Sanguine Bond (C21) 153
+1x Sapling of Colfenor (C21) 228
+1x Sapseep Forest (C21) 313
+1x Silversmote Ghoul (C21) 154
+1x Sol Ring (C21) 263
+1x Sproutback Trudge (C21) 68
+1x Study Hall (C21) 80
+1x Suffer the Past (C21) 155
+1x Sun Droplet (C21) 268
+11x Swamp (STX) 370
+1x Tainted Wood (C21) 321
+1x Talisman of Resilience (C21) 270
+1x Taste of Death (C21) 156
+1x Temple of Malady (C21) 323
+1x Temple of the False God (C21) 326
+1x Tivash, Gloom Summoner (C21) 45
+1x Trudge Garden (C21) 69
+1x Vampire Nighthawk (C21) 157
+1x Veinwitch Coven (C21) 46
+1x Venser's Journal (C21) 273
+1x Verdant Sun's Avatar (C21) 208
+1x Well of Lost Dreams (C21) 275
+1x Witch's Clinic (C21) 81
+1x Witherbloom Campus (STX) 275
+1x Yedora, Grave Gardener (C21) 70

@@ -1,0 +1,82 @@
+1x Aether Gale (C21) 113
+1x Aetherspouts (C21) 114
+1x Apex of Power (C21) 158
+1x Arcane Signet (C21) 234
+1x Blasphemous Act (C21) 159
+1x Blighted Cataract (C21) 279
+1x Brainstorm (C21) 115
+1x Brass's Bounty (C21) 160
+1x Call the Skybreaker (C21) 211
+1x Charmbreaker Devils (C21) 162
+1x Command Tower (C21) 284
+1x Crackling Drake (C21) 213
+1x Creative Technique (C21) 49
+1x Dazzling Sphinx (C21) 25
+1x Desert of the Fervent (C21) 286
+1x Desert of the Mindful (C21) 287
+1x Dig Through Time (C21) 119
+1x Diluvian Primordial (C21) 120
+1x Dualcaster Mage (C21) 165
+1x Elemental Masterpiece (STX) 182
+1x Elementalist's Palette (C21) 76
+1x Epic Experiment (C21) 216
+1x Erratic Cyclops (C21) 166
+1x Etali, Primal Storm (C21) 167
+1x Exotic Orchard (C21) 288
+1x Expressive Iteration (STX) 186
+1x Faithless Looting (C21) 168
+1x Fiery Encore (C21) 51
+1x Fiery Fall (C21) 170
+1x Forgotten Cave (C21) 289
+1x Hedron Archive (C21) 244
+1x Humble Defector (C21) 174
+1x Inferno Project (C21) 52
+1x Inspiring Refrain (C21) 27
+10x Island (STX) 368
+1x Izzet Boilerworks (C21) 294
+1x Izzet Signet (C21) 247
+1x Jaya Ballard (C21) 175
+1x Letter of Acceptance (STX) 256
+1x Living Lore (C21) 121
+1x Lonely Sandbar (C21) 298
+1x Mage-Ring Network (C21) 300
+1x Mana Geyser (C21) 176
+1x Memorial to Genius (C21) 301
+1x Metallurgic Summonings (C21) 122
+1x Mind Stone (C21) 251
+1x Mind's Desire (C21) 123
+9x Mountain (STX) 372
+1x Muse Vortex (C21) 28
+1x Myriad Landscape (C21) 304
+1x Naru Meha, Master Wizard (C21) 124
+1x Octavia, Living Thesis (C21) 29
+1x Ponder (C21) 125
+1x Prismari Campus (STX) 270
+1x Pyromancer's Goggles (C21) 259
+1x Radiant Performer (C21) 54
+1x Reinterpret (C21) 73
+1x Reliquary Tower (C21) 311
+1x Resculpt (STX) 51
+1x Rionya, Fire Dancer (C21) 55
+1x Rootha, Mercurial Artist (STX) 227
+1x Rousing Refrain (C21) 56
+1x Scavenger Grounds (C21) 314
+1x Seething Song (C21) 179
+1x Serum Visions (C21) 129
+1x Shivan Reef (C21) 316
+1x Sly Instigator (C21) 32
+1x Sol Ring (C21) 263
+1x Storm-Kiln Artist (STX) 115
+1x Study Hall (C21) 80
+1x Sunbird's Invocation (C21) 180
+1x Surge to Victory (C21) 58
+1x Swarm Intelligence (C21) 130
+1x Talisman of Creativity (C21) 269
+1x Talrand, Sky Summoner (C21) 131
+1x Temple of Epiphany (C21) 322
+1x Temple of the False God (C21) 326
+1x Traumatic Visions (C21) 132
+1x Treasure Cruise (C21) 133
+1x Veyran, Voice of Duality (C21) 3
+1x Volcanic Vision (C21) 182
+1x Wildfire Devils (C21) 183

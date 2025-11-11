@@ -1,0 +1,80 @@
+1x Arashi, the Sky Asunder (C21) 185
+1x Arcane Signet (C21) 234
+1x Beast Within (C21) 186
+1x Biomass Mutation (C21) 209
+1x Biomathematician (STX) 164
+1x Blighted Woodland (C21) 280
+1x Champion of Wits (C21) 116
+1x Coiling Oracle (C21) 212
+1x Command Tower (C21) 284
+1x Commander's Insight (C21) 23
+1x Crafty Cutpurse (C21) 117
+1x Curiosity Crafter (C21) 24
+1x Curse of the Swine (C21) 118
+1x Deekah, Fractal Theorist (C21) 26
+1x Desolation Twin (C21) 82
+1x Esix, Fractal Bloom (C21) 10
+1x Eureka Moment (STX) 184
+1x Exotic Orchard (C21) 288
+1x Ezuri's Predation (C21) 188
+11x Forest (STX) 374
+1x Forgotten Ancient (C21) 189
+1x Fractal Harness (C21) 61
+1x Garruk, Primal Hunter (C21) 190
+1x Geometric Nexus (C21) 77
+1x Golden Ratio (STX) 190
+1x Guardian Augmenter (C21) 62
+1x Hornet Nest (C21) 192
+1x Hornet Queen (C21) 193
+1x Hydra Broodmaster (C21) 194
+1x Idol of Oblivion (C21) 246
+1x Incubation // Incongruity (C21) 219
+1x Incubation Druid (C21) 195
+10x Island (STX) 368
+1x Kaseto, Orochi Archmage (C21) 221
+1x Kazandu Tuskcaller (C21) 196
+1x Kodama's Reach (C21) 197
+1x Krosan Grip (C21) 198
+1x Llanowar Reborn (C21) 296
+1x Lonely Sandbar (C21) 298
+1x Lumbering Falls (C21) 299
+1x Managorger Hydra (C21) 199
+1x Master Biomancer (C21) 224
+1x Mosswort Bridge (C21) 303
+1x Myriad Landscape (C21) 304
+1x Nissa's Expedition (C21) 200
+1x Novijen, Heart of Progress (C21) 305
+1x Opal Palace (C21) 306
+1x Oran-Rief, the Vastwood (C21) 307
+1x Oversimplify (C21) 72
+1x Paradox Zone (C21) 64
+1x Perplexing Test (C21) 30
+1x Plaxcaster Frogling (C21) 226
+1x Primal Empathy (C21) 227
+1x Quandrix Campus (STX) 271
+1x Quandrix Cultivator (STX) 218
+1x Rampaging Baloths (C21) 203
+1x Rampant Growth (C21) 204
+1x Rapid Hybridization (C21) 126
+1x Reef Worm (C21) 127
+1x Replication Technique (C21) 31
+1x Return of the Wildspeaker (C21) 205
+1x Rite of Replication (C21) 128
+1x Rogue's Passage (C21) 312
+1x Ruxa, Patient Professor (C21) 66
+1x Sequence Engine (C21) 67
+1x Shamanic Revelation (C21) 206
+1x Simic Growth Chamber (C21) 317
+1x Simic Signet (C21) 262
+1x Sol Ring (C21) 263
+1x Spawning Kraken (C21) 33
+1x Spitting Image (C21) 229
+1x Study Hall (C21) 80
+1x Temple of Mystery (C21) 324
+1x Temple of the False God (C21) 326
+1x Terastodon (C21) 207
+1x Theoretical Duplication (C21) 34
+1x Tranquil Thicket (C21) 408
+1x Trygon Predator (C21) 231
+1x Yavimaya Coast (C21) 409
+1x Zimone, Quandrix Prodigy (STX) 250

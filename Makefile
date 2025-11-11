@@ -15,3 +15,7 @@ add-set:
 .PHONY: add-deck
 add-decks:
 	poetry run python populate_db.py --decks $(DECK)
+
+.PHONY: add-decks-only
+add-decks-only:
+	poetry run python populate_db.py --decks-only

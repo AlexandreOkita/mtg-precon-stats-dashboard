@@ -27,7 +27,7 @@ def _insert_deck_if_card_exists(cursor: sqlite3.Cursor, deck_name: str, card_nam
         
         # Relaciona o card com o deck na tabela de deck_cards
         cursor.execute(
-            "INSERT INTO deck_cards (card_name, deck_name) VALUES (?, ?)",
+            "INSERT OR IGNORE INTO deck_cards (card_name, deck_name) VALUES (?, ?)",
             (card_name, deck_name)
         )
 
@@ -111,6 +111,8 @@ if __name__ == "__main__":
     if args and args[0] == "--set" and len(args) > 1:
         populate_db_with_tags(set=args[1])
     elif args and args[0] == "--decks" and len(args) > 1:
+        populate_db_with_decks()
+    elif args and args[0] == "--decks-only":
         populate_db_with_decks()
     else:
         populate_db_with_tags()
