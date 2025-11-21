@@ -74,32 +74,106 @@ def render_decklist_breakdown_tab(deck_stats_df: DataFrame, card_tags_per_deck_d
         fig_cmc.update_layout(xaxis_tickangle=-45, showlegend=False)
         st.plotly_chart(fig_cmc, use_container_width=True)
 
-        # Table with all cards in deck
-        st.subheader(f"All Cards in {selected_deck}")
-        available_tags = ["All Tags"] + sorted(deck_tag_data['tag_name'].unique())
-        selected_tag = st.selectbox(
-                "Select a tag to filter by:",
+        # Card Browser Section
+        st.subheader(f"Card Browser - {selected_deck}")
+        
+        # Get all cards in the selected deck
+        all_cards_in_deck = all_cards_df[all_cards_df['decks'].str.contains(selected_deck, na=False)].copy() # type: ignore
+        
+        # Create filter section in columns
+        st.markdown("### Filters")
+        filter_col1, filter_col2, filter_col3 = st.columns(3)
+        
+        with filter_col1:
+            # Tag filter
+            available_tags = ["All Tags"] + sorted(deck_tag_data['tag_name'].unique())
+            selected_tag = st.selectbox(
+                "Tag:",
                 options=available_tags,
                 key="tag_filter_decklist"
             )
-        all_cards_in_deck = all_cards_df[all_cards_df['decks'].str.contains(selected_deck, na=False)] # type: ignore
+        
+        with filter_col2:
+            # Card type filter
+            # Extract all unique card types from the deck
+            all_types = set() # type: ignore
+            for types_str in all_cards_in_deck['card_types'].dropna():
+                all_types.update(types_str.split(','))
+            available_types = ["All Types"] + sorted(all_types) # type: ignore
+            selected_type = st.selectbox(
+                "Card Type:",
+                options=available_types,
+                key="type_filter_decklist"
+            )
+        
+        with filter_col3:
+            # CMC range filter
+            min_cmc = int(all_cards_in_deck['cmc'].min())
+            max_cmc = int(all_cards_in_deck['cmc'].max())
+            cmc_range = st.slider(
+                "CMC Range:",
+                min_value=min_cmc,
+                max_value=max_cmc,
+                value=(min_cmc, max_cmc),
+                key="cmc_filter_decklist"
+            )
+        
+        # Apply filters
+        filtered_cards = all_cards_in_deck.copy()
+        
+        # Filter by tag
         if selected_tag and selected_tag != "All Tags":
-            all_cards_in_deck = all_cards_in_deck[all_cards_in_deck['card_tags'].str.contains(selected_tag, na=False)] # type: ignore
+            filtered_cards = filtered_cards[filtered_cards['card_tags'].str.contains(selected_tag, na=False)] # type: ignore
+        
+        # Filter by card type
+        if selected_type and selected_type != "All Types":
+            filtered_cards = filtered_cards[filtered_cards['card_types'].str.contains(selected_type, na=False)] # type: ignore
+        
+        # Filter by CMC range
+        filtered_cards = filtered_cards[
+            (filtered_cards['cmc'] >= cmc_range[0]) & 
+            (filtered_cards['cmc'] <= cmc_range[1])
+        ]
+        
+        # Display filtered results count
+        st.write(f"**{len(filtered_cards)} cards found** (out of {len(all_cards_in_deck)} total)")
+        
+        # Sort options
+        sort_col1, sort_col2 = st.columns([1, 3]) # type: ignore
+        with sort_col1:
+            sort_by = st.selectbox(
+                "Sort by:",
+                options=["Name", "CMC (Low to High)", "CMC (High to Low)"],
+                key="sort_filter_decklist"
+            )
+        
+        # Apply sorting
+        if sort_by == "CMC (Low to High)":
+            filtered_cards = filtered_cards.sort_values('cmc', ascending=True)
+        elif sort_by == "CMC (High to Low)":
+            filtered_cards = filtered_cards.sort_values('cmc', ascending=False)
+        else:  # Name
+            filtered_cards = filtered_cards.sort_values('card_name', ascending=True)
         
         # Display cards as image gallery
-        st.write(f"**{len(all_cards_in_deck)} cards found**")
-        
-        # Create a grid layout with 4 columns
-        cols_per_row = 4
-        rows = [all_cards_in_deck.iloc[i:i+cols_per_row] for i in range(0, len(all_cards_in_deck), cols_per_row)]
-        
-        for row in rows:
-            cols = st.columns(cols_per_row)
-            for idx, (_, card) in enumerate(row.iterrows()):
-                with cols[idx]:
-                    if card['image_url'] and card['image_url'].strip():
-                        st.image(card['image_url'], use_container_width=True)
-                    else:
-                        st.info(f"**{card['card_name']}**\nCMC: {card['cmc']}\n(No image)")        
+        if len(filtered_cards) > 0:
+            cols_per_row = 4
+            rows = [filtered_cards.iloc[i:i+cols_per_row] for i in range(0, len(filtered_cards), cols_per_row)]
+            
+            for row in rows:
+                cols = st.columns(cols_per_row)
+                for idx, (_, card) in enumerate(row.iterrows()):
+                    with cols[idx]:
+                        if card['image_url'] and card['image_url'].strip():
+                            st.image(card['image_url'], use_container_width=True)
+                            # Show card details in expander
+                            with st.expander("Details"):
+                                st.write(f"**CMC:** {card['cmc']}")
+                                st.write(f"**Types:** {card['card_types'] or 'N/A'}")
+                                st.write(f"**Tags:** {card['card_tags'] or 'N/A'}")
+                        else:
+                            st.info(f"**{card['card_name']}**\nCMC: {card['cmc']}\n(No image)")
+        else:
+            st.warning("No cards match the selected filters.")        
     else:
         st.info("No deck statistics available.")
