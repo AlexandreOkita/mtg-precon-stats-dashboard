@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# Poetry
+poetry.lock
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Database (will be created in container)
+*.db
+
+# Dev files
+.devcontainer/
+Makefile
+README.md
+response.json
+
+# macOS
+.DS_Store
+
+# Logs
+*.log

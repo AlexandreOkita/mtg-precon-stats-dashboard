@@ -19,3 +19,28 @@ add-decks:
 .PHONY: add-decks-only
 add-decks-only:
 	PYTHONPATH=. poetry run python src/precon_db/populate_db.py --decks-only
+
+.PHONY: prod
+prod:
+	PYTHONPATH=. poetry run streamlit run src/dashboard/app.py --server.port=8501 --server.address=0.0.0.0 --server.headless=true
+
+# Docker commands
+.PHONY: docker-build
+docker-build:
+	docker-compose build
+
+.PHONY: docker-up
+docker-up:
+	docker-compose up -d
+
+.PHONY: docker-down
+docker-down:
+	docker-compose down
+
+.PHONY: docker-logs
+docker-logs:
+	docker-compose logs -f
+
+.PHONY: docker-prod
+docker-prod: docker-build docker-up
+	@echo "Application running at http://localhost:8501"
