@@ -1,13 +1,19 @@
 import sqlite3
 import sys
 from typing import Optional
+from pathlib import Path
 
-from scryfall_api import ScryfallAPI
 import os
 
-def _insert_card_with_tag(cursor: sqlite3.Cursor, card_name: str, tag_name: str, cmc: int, type_: str) -> None:
+from src.external.scryfall_api import ScryfallAPI
+
+# Get project root directory (2 levels up from this file)
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+DB_PATH = PROJECT_ROOT / "precon.db"
+
+def _insert_card_with_tag(cursor: sqlite3.Cursor, card_name: str, tag_name: str, cmc: int, type_: str, image_url: str) -> None:
     # Insere o card na tabela de cards
-    cursor.execute("INSERT OR IGNORE INTO cards (name, cmc, type) VALUES (?, ?, ?)", (card_name, cmc, type_))
+    cursor.execute("INSERT OR IGNORE INTO cards (name, cmc, type, image_url) VALUES (?, ?, ?, ?)", (card_name, cmc, type_, image_url))
 
     # Insere a tag na tabela de tags
     cursor.execute("INSERT OR IGNORE INTO tags (name) VALUES (?)", (tag_name,))
@@ -32,18 +38,66 @@ def _insert_deck_if_card_exists(cursor: sqlite3.Cursor, deck_name: str, card_nam
         )
 
 def _get_tag_list():
-    with open("tag_list.txt", "r") as f:
+    tag_file = PROJECT_ROOT / "tag_list.txt"
+    with open(tag_file, "r") as f:
         tags = [line.strip() for line in f.readlines() if line.strip()]
     return tags
 
 def _get_set_list():
-    with open("set_list.txt", "r") as f:
+    set_file = PROJECT_ROOT / "set_list.txt"
+    with open(set_file, "r") as f:
         sets = [line.strip() for line in f.readlines() if line.strip()]
     return sets
 
+def _add_card_type(cursor: sqlite3.Cursor, card_name: str, type_name: str) -> None:
+    types = {
+        "creature", "instant", "sorcery", "enchantment", "artifact", "planeswalker", "land", "battle"
+    }
+
+    type_words = type_name.split()
+    for word in type_words:
+        if word.lower() in types:
+            cursor.execute(
+                "INSERT OR IGNORE INTO card_types (card_name, type_name) VALUES (?, ?)",
+                (card_name, word.lower())
+            )
+
+def populate_db_with_cards(set: Optional[str] = None):
+    scryfall_api = ScryfallAPI()
+    conn = sqlite3.connect(str(DB_PATH))
+    cursor = conn.cursor()
+
+    def _process_page(card_data): # type: ignore
+        if card_data and "data" in card_data:
+            for card in card_data["data"]: # type: ignore
+                card_name = card["name"] # type: ignore
+                cmc = card["cmc"] # type: ignore
+                type_ = card["type_line"] # type: ignore
+                cursor.execute("INSERT OR IGNORE INTO cards (name, cmc, type) VALUES (?, ?, ?)", (card_name, cmc, type_)) # type: ignore
+                _add_card_type(cursor, card_name, type_)  # type: ignore
+            print(f"Inserted cards from set {mtg_set}")
+            if "has_more" in card_data and card_data["has_more"]:  # type: ignore
+                _process_page(scryfall_api.process_next_page(card_data["next_page"]))  # type: ignore
+        else:
+            print(f"No cards found for set {mtg_set}")
+
+    if set:
+        mtg_sets = [set]
+    else:
+        mtg_sets = _get_set_list()
+
+    for mtg_set in mtg_sets:
+        query = f'set:{mtg_set}'
+        card_data = scryfall_api.scryfall_oracle_search(query)  # type: ignore
+        _process_page(card_data)
+
+    conn.commit()
+    print("Dados inseridos com sucesso ✅")
+    conn.close()
+
 def populate_db_with_tags(set: Optional[str] = None):
     scryfall_api = ScryfallAPI()
-    conn = sqlite3.connect("precon.db")
+    conn = sqlite3.connect(str(DB_PATH))
     cursor = conn.cursor()
 
     if set:
@@ -66,7 +120,8 @@ def populate_db_with_tags(set: Optional[str] = None):
                     card_name = card["name"] # type: ignore
                     cmc = card["cmc"] # type: ignore
                     type_ = card["type_line"] # type: ignore
-                    _insert_card_with_tag(cursor, card_name, tag, cmc, type_) # type: ignore
+                    image_url = card.get("image_uris", {}).get("normal", "")  # type: ignore
+                    _insert_card_with_tag(cursor, card_name, tag, cmc, type_, image_url) # type: ignore
                 print(f"Inserted cards from set {mtg_set} with tag {tag}")
             else:
                 print(f"No cards found for set {mtg_set} with tag {tag}")
@@ -77,13 +132,13 @@ def populate_db_with_tags(set: Optional[str] = None):
     conn.close()
 
 def populate_db_with_decks(deck: Optional[str] = None):
-    conn = sqlite3.connect("precon.db")
+    conn = sqlite3.connect(str(DB_PATH))
     cursor = conn.cursor()
 
-    decklists_path = "decklists/"
+    decklists_path = PROJECT_ROOT / "decklists"
 
     if deck:
-        decklists_path = os.path.join(decklists_path, f"{deck}.txt")
+        decklists_path = decklists_path / f"{deck}.txt"
     
     # Check all files inside decklists directory
     if os.path.exists(decklists_path):
@@ -115,5 +170,6 @@ if __name__ == "__main__":
     elif args and args[0] == "--decks-only":
         populate_db_with_decks()
     else:
+        populate_db_with_cards()
         populate_db_with_tags()
         populate_db_with_decks()

@@ -1,13 +1,19 @@
 import sqlite3
+from pathlib import Path
+
+# Get project root directory (2 levels up from this file)
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+DB_PATH = PROJECT_ROOT / "precon.db"
 
 # Cria (ou abre) o arquivo do banco
-conn = sqlite3.connect("precon.db")
+conn = sqlite3.connect(str(DB_PATH))
 cursor = conn.cursor()
 
 # Cria as tabelas
 cursor.executescript("""
 CREATE TABLE IF NOT EXISTS cards (
     name TEXT PRIMARY KEY,
+    image_url TEXT,
     cmc  INTEGER,
     type TEXT
 );
@@ -35,6 +41,14 @@ CREATE TABLE IF NOT EXISTS card_tags (
     FOREIGN KEY (card_name) REFERENCES cards(name) ON DELETE CASCADE,
     FOREIGN KEY (tag_name) REFERENCES tags(name) ON DELETE CASCADE
 );
+                     
+CREATE TABLE IF NOT EXISTS card_types (
+    card_name TEXT NOT NULL,
+    type_name TEXT NOT NULL,
+    PRIMARY KEY (card_name, type_name),
+    FOREIGN KEY (card_name) REFERENCES cards(name) ON DELETE CASCADE
+);
+
 """)
 
 conn.commit()

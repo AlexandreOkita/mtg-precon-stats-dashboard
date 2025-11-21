@@ -19,9 +19,16 @@ class ScryfallAPI:
             return response.json()
         else:
             return None
+    
+    def process_next_page(self, next_page_url): # type: ignore
+        response = requests.get(next_page_url) # type: ignore
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
         
 if __name__ == "__main__":
     api = ScryfallAPI()
-    query = "set:eoc otag:spot_removal"
+    query = "set:otc"
     card_data = api.scryfall_oracle_search(query) # type: ignore
     print(json.dumps(card_data, indent=2)) # type: ignore
