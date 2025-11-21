@@ -73,7 +73,8 @@ def populate_db_with_cards(set: Optional[str] = None):
                 card_name = card["name"] # type: ignore
                 cmc = card["cmc"] # type: ignore
                 type_ = card["type_line"] # type: ignore
-                cursor.execute("INSERT OR IGNORE INTO cards (name, cmc, type) VALUES (?, ?, ?)", (card_name, cmc, type_)) # type: ignore
+                image_url = card.get("image_uris", {}).get("normal", "")  # type: ignore
+                cursor.execute("INSERT OR IGNORE INTO cards (name, cmc, type, image_url) VALUES (?, ?, ?, ?)", (card_name, cmc, type_, image_url)) # type: ignore
                 _add_card_type(cursor, card_name, type_)  # type: ignore
             print(f"Inserted cards from set {mtg_set}")
             if "has_more" in card_data and card_data["has_more"]:  # type: ignore

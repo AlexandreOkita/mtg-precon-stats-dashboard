@@ -1,5 +1,6 @@
 import streamlit as st
 
+from src.dashboard.dataframes.all_cards_data import load_all_cards_data_df
 from src.dashboard.dataframes.card_tags_per_deck_df import load_card_tags_per_deck
 from src.dashboard.dataframes.common_dataframes import load_card_tags, load_cards, load_deck_cards, load_decks, load_tags
 from src.dashboard.dataframes.deck_stats_df import load_deck_stats
@@ -31,6 +32,7 @@ try:
     card_tags_df = load_card_tags()
     card_tags_per_deck_df = load_card_tags_per_deck()
     deck_stats_df = load_deck_stats()
+    all_cards_df = load_all_cards_data_df()
 except Exception as e:
     st.error(f"Error loading data: {e}")
     st.stop()
@@ -49,7 +51,7 @@ with tag_filter_tab:
 ########################
 
 with deck_analysis_tab:
-    render_decklist_breakdown_tab(deck_stats_df, card_tags_per_deck_df, deck_cards_df, cards_df)
+    render_decklist_breakdown_tab(deck_stats_df, card_tags_per_deck_df, deck_cards_df, cards_df, all_cards_df)
 
 # Footer
 st.markdown("---")

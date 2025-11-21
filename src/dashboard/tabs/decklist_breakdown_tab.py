@@ -2,7 +2,7 @@ from pandas import DataFrame
 import streamlit as st
 import plotly.express as px
 
-def render_decklist_breakdown_tab(deck_stats_df: DataFrame, card_tags_per_deck_df: DataFrame, deck_cards_df: DataFrame, cards_df: DataFrame):
+def render_decklist_breakdown_tab(deck_stats_df: DataFrame, card_tags_per_deck_df: DataFrame, deck_cards_df: DataFrame, cards_df: DataFrame, all_cards_df: DataFrame):
     st.header("Decklist Breakdown")
 
     
@@ -59,14 +59,6 @@ def render_decklist_breakdown_tab(deck_stats_df: DataFrame, card_tags_per_deck_d
         )
         st.plotly_chart(fig_cmc_cards_deck, use_container_width=True)
 
-        # Table with all cards in deck
-        st.subheader(f"All Cards in {selected_deck}")
-        all_cards_in_deck = deck_cards_df[deck_cards_df['deck_name'] == selected_deck].merge(cards_df, left_on='card_name', right_on='name')
-        display_deck_cards_df = all_cards_in_deck[['card_name', 'cmc', 'type_line']].copy()
-        display_deck_cards_df.columns = ['Card Name', 'CMC', 'Type']
-        st.dataframe(display_deck_cards_df, use_container_width=True, hide_index=True)
-
-
         # Average CMC per deck
         st.subheader("Compare deck CMC with Other Decks")
         fig_cmc = px.bar(
@@ -81,6 +73,33 @@ def render_decklist_breakdown_tab(deck_stats_df: DataFrame, card_tags_per_deck_d
         )
         fig_cmc.update_layout(xaxis_tickangle=-45, showlegend=False)
         st.plotly_chart(fig_cmc, use_container_width=True)
+
+        # Table with all cards in deck
+        st.subheader(f"All Cards in {selected_deck}")
+        available_tags = ["All Tags"] + sorted(deck_tag_data['tag_name'].unique())
+        selected_tag = st.selectbox(
+                "Select a tag to filter by:",
+                options=available_tags,
+                key="tag_filter_decklist"
+            )
+        all_cards_in_deck = all_cards_df[all_cards_df['decks'].str.contains(selected_deck, na=False)] # type: ignore
+        if selected_tag and selected_tag != "All Tags":
+            all_cards_in_deck = all_cards_in_deck[all_cards_in_deck['card_tags'].str.contains(selected_tag, na=False)] # type: ignore
         
+        # Display cards as image gallery
+        st.write(f"**{len(all_cards_in_deck)} cards found**")
+        
+        # Create a grid layout with 4 columns
+        cols_per_row = 4
+        rows = [all_cards_in_deck.iloc[i:i+cols_per_row] for i in range(0, len(all_cards_in_deck), cols_per_row)]
+        
+        for row in rows:
+            cols = st.columns(cols_per_row)
+            for idx, (_, card) in enumerate(row.iterrows()):
+                with cols[idx]:
+                    if card['image_url'] and card['image_url'].strip():
+                        st.image(card['image_url'], use_container_width=True)
+                    else:
+                        st.info(f"**{card['card_name']}**\nCMC: {card['cmc']}\n(No image)")        
     else:
         st.info("No deck statistics available.")

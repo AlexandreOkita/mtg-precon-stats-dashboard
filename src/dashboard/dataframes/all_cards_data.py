@@ -4,7 +4,7 @@ import streamlit as st
 from src.dashboard.core import get_connection
 
 @st.cache_data
-def load_cards_with_types():
+def load_all_cards_data_df():
     """Load cards with their types aggregated as a list"""
     conn = get_connection()
     query = """
@@ -12,19 +12,24 @@ def load_cards_with_types():
         c.name AS card_name,
         c.cmc,
         c.image_url AS image_url,
-        GROUP_CONCAT(ct.type_name, ',') AS card_types,
-        GROUP_CONCAT(ctags.tag_name, ',') AS card_tags,
-        GROUP_CONCAT(dc.deck_name, ',') AS decks
+        (SELECT GROUP_CONCAT(DISTINCT type_name) 
+         FROM card_types 
+         WHERE card_name = c.name) AS card_types,
+        (SELECT GROUP_CONCAT(DISTINCT tag_name) 
+         FROM card_tags 
+         WHERE card_name = c.name) AS card_tags,
+        (SELECT GROUP_CONCAT(DISTINCT deck_name) 
+         FROM deck_cards 
+         WHERE card_name = c.name) AS decks
     FROM cards c
-    LEFT JOIN card_types ct ON c.name = ct.card_name
-    LEFT JOIN card_tags ctags ON c.name = ctags.card_name
-    LEFT JOIN deck_cards dc ON c.name = dc.card_name
-    GROUP BY c.name, c.cmc, c.image_url
     """
     df = pd.read_sql_query(query, conn)
         
     return df
 
 if __name__ == "__main__":
-    df = load_cards_with_types()
-    print(df.head())
+    pd.set_option('display.max_columns', None)
+    df = load_all_cards_data_df()
+    # filter to show only cards with card_type: ramp
+    ramp_cards = df[df['decks'].str.contains('ramp', na=False)]
+    print(ramp_cards[["card_name", "card_types", "card_tags", "decks"]].head())
